@@ -104,7 +104,9 @@ function moveDodgerRight() {
   // implement me!
   // nothing about the right position was ever defined
   window.requestAnimationFrame(function() {
+    // target its position from the left
     let left = positionToInteger(DODGER.style.left);
+    // 
     if (left < 360) {
       DODGER.style.left = `${left + 4}px`;
     }
