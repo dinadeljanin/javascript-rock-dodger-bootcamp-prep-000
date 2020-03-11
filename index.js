@@ -51,6 +51,7 @@ function createRock(x) {
     if (checkCollision(rock)){
        endGame()
      }
+     
      // if there's still 360px of room for collision, call that function again
     if (top < 400) {
       window.requestAnimationFrame(moveRock)
