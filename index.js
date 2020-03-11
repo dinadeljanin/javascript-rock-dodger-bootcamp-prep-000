@@ -46,15 +46,18 @@ function createRock(x) {
   GAME.appendChild(rock);
 
   function moveRock() {
-    if (checkCollision(rock)) {
-      endGame();
-    } else {
-      top = top + 2;
-      rock.style.top = `${top}px`;
-    }
+    rock.style.top = `${top += 2}px`;
 
-    if (top > 400) {
-      rock.remove();
+    if (checkCollision(rock)){
+       endGame()
+     }
+     // if there's still 360px of room for collision, call that function again
+    if (top < 400) {
+      window.requestAnimationFrame(moveRock)
+    }
+    // but if the rock has gone out of bounds without a collision, remove it
+    else{
+    rock.remove()
     }
   }
 
